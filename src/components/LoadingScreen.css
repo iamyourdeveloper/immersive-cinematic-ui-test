@@ -1,0 +1,278 @@
+/* ============================================
+   Loading Screen Styles
+   ============================================ */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Pattern Overlay */
+.loading-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 136, 0.03) 2px,
+      rgba(0, 255, 136, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+/* Animated Lines */
+.loading-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loading-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--neon-green),
+    transparent
+  );
+  transform-origin: left center;
+}
+
+/* Center Content */
+.loading-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+/* Logos */
+.loading-logos {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sprite-logo svg {
+  width: 80px;
+  height: 40px;
+}
+
+.logo-divider {
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.wakanda-logo {
+  text-align: center;
+  line-height: 1.3;
+}
+
+.wakanda-studio {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+}
+
+.wakanda-title {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+}
+
+.wakanda-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  letter-spacing: 0.05em;
+}
+
+.wakanda-theaters {
+  font-family: var(--font-body);
+  font-size: 0.4rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-top: 0.25rem;
+}
+
+/* Title */
+.loading-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+}
+
+.title-the,
+.title-of {
+  font-weight: 300;
+  color: var(--text-primary);
+  font-size: 0.5em;
+  margin: 0 0.25em;
+}
+
+.title-hall,
+.title-zero,
+.title-limits {
+  font-weight: 700;
+  color: var(--neon-green);
+}
+
+/* Progress Bar */
+.loading-progress-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.progress-bar {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    var(--neon-green-dim),
+    var(--neon-green)
+  );
+  box-shadow: 0 0 10px var(--neon-green-glow);
+  transition: width 0.1s ease-out;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+.progress-label {
+  color: var(--text-muted);
+}
+
+.progress-value {
+  color: var(--neon-green);
+  font-weight: 600;
+}
+
+/* Decorations */
+.loading-decorations {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+}
+
+.decoration-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--neon-green);
+  border-style: solid;
+  border-width: 0;
+}
+
+.decoration-corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.decoration-corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.decoration-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.decoration-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* Scan Line */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--neon-green-glow),
+    transparent
+  );
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Particles */
+.loading-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--neon-green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--neon-green-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loading-logos {
+    gap: 1rem;
+  }
+  
+  .sprite-logo svg {
+    width: 60px;
+    height: 30px;
+  }
+  
+  .loading-progress-container {
+    max-width: 280px;
+  }
+}
+

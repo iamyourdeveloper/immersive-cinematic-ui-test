@@ -1,0 +1,305 @@
+/* ============================================
+   THE HALL OF ZERO LIMITS - Global Styles
+   Wakanda-inspired Immersive 3D Experience
+   ============================================ */
+
+/* CSS Variables - Theme Colors */
+:root {
+  /* Primary Colors - Wakanda Green Palette */
+  --neon-green: #00ff88;
+  --neon-green-dim: #00cc66;
+  --neon-green-glow: rgba(0, 255, 136, 0.6);
+  --neon-green-subtle: rgba(0, 255, 136, 0.15);
+  
+  /* Dark Background Palette */
+  --bg-primary: #0a0d0a;
+  --bg-secondary: #0f1410;
+  --bg-tertiary: #141a14;
+  --bg-overlay: rgba(10, 13, 10, 0.85);
+  
+  /* Accent Colors */
+  --gold-accent: #c4a35a;
+  --gold-bright: #d4b66a;
+  --copper-accent: #8b5a2b;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Rajdhani', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.8s ease;
+  
+  /* Z-index layers */
+  --z-canvas: 0;
+  --z-overlay: 10;
+  --z-ui: 20;
+  --z-navigation: 30;
+  --z-modal: 40;
+  --z-loading: 100;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: var(--neon-green);
+  color: var(--bg-primary);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-green-dim);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+}
+
+/* App Container */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas Container */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-canvas);
+}
+
+/* Typography Classes */
+.text-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.text-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 
+    0 0 10px var(--neon-green-glow),
+    0 0 20px var(--neon-green-glow),
+    0 0 40px var(--neon-green-subtle);
+}
+
+.glow-border {
+  box-shadow: 
+    0 0 5px var(--neon-green-glow),
+    0 0 10px var(--neon-green-subtle),
+    inset 0 0 5px var(--neon-green-subtle);
+}
+
+/* Button Base */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-medium);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--neon-green-subtle), transparent);
+  transition: left var(--transition-medium);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: var(--neon-green-subtle);
+  box-shadow: 
+    0 0 20px var(--neon-green-glow),
+    inset 0 0 20px var(--neon-green-subtle);
+}
+
+/* Hexagonal Shape Utility */
+.hex-shape {
+  clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+}
+
+/* Wakanda Pattern Background */
+.wakanda-pattern {
+  background-image: 
+    linear-gradient(30deg, var(--bg-tertiary) 12%, transparent 12.5%, transparent 87%, var(--bg-tertiary) 87.5%, var(--bg-tertiary)),
+    linear-gradient(150deg, var(--bg-tertiary) 12%, transparent 12.5%, transparent 87%, var(--bg-tertiary) 87.5%, var(--bg-tertiary)),
+    linear-gradient(30deg, var(--bg-tertiary) 12%, transparent 12.5%, transparent 87%, var(--bg-tertiary) 87.5%, var(--bg-tertiary)),
+    linear-gradient(150deg, var(--bg-tertiary) 12%, transparent 12.5%, transparent 87%, var(--bg-tertiary) 87.5%, var(--bg-tertiary)),
+    linear-gradient(60deg, var(--bg-secondary) 25%, transparent 25.5%, transparent 75%, var(--bg-secondary) 75%, var(--bg-secondary)),
+    linear-gradient(60deg, var(--bg-secondary) 25%, transparent 25.5%, transparent 75%, var(--bg-secondary) 75%, var(--bg-secondary));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+/* Animation Keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--neon-green-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-green-glow), 0 0 40px var(--neon-green-subtle);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.95;
+  }
+}
+
+/* Utility Classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Loading State */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loading);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+
+/* Side Menu Styles */
+.menu-nav-link {
+  border: none;
+  background-color: transparent;
+}
