@@ -385,7 +385,7 @@ function SocialButtons({ onButtonHover, isActive }) {
   const buttonData = [
     { url: 'https://wakanda-forever-master.dogstudio-dev.co/zerolimits', offset: -1.2, label: 'Sprite x Wakanda Forever (Original)' },
     { url: 'https://www.coca-cola.com/us/en/brands/sprite', offset: 0, label: 'Sprite - Official Home' },
-    { url: 'https://github.com/obox-systems/test_task_frontend_interactive_dev_tavon_graves', offset: 1.2, label: 'View Repository' }
+    { url: 'https://github.com/iamyourdeveloper/immersive-cinematic-ui-test', offset: 1.2, label: 'View Repository' }
   ]
 
   const displayText = hoveredIndex !== null ? buttonData[hoveredIndex].label : 'Hover upon icons below for more content.'
